@@ -6,8 +6,27 @@ const router = express.Router();
 //recibe una ruta y callback, callback recibe request y response
 
 router.get("/", (req, response) => {
+  const productos = [
+    {
+      nombre:'producto1',
+      precio:100
+    },
+    {nombre:'producto2',
+      precio:200
+
+    },
+    {
+      nombre:'producto3',
+      precio:300
+    },
+    {
+      nombre:'producto4',
+      precio:400
+    }
+  ]
+
   //!indicar nombre y donde esta la vista que deseo mostrar, 
-  response.render('home/indexHome')
+  response.render('home/indexHome',{titulo:'Bienvenido a la página principal de express', productos})
 });
 
 router.post("/", (req, response) => {

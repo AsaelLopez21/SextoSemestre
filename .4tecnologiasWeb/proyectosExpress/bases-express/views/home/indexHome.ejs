@@ -61,7 +61,9 @@
 
     <!-- Main Content -->
     <div class="container mt-5">
-        <h1 class="text-center">Welcome to Express Project</h1>
+
+        <!--! viene del render del get en el archivo de home-->
+        <h1 class="text-center"><%=titulo%></h1>
         <hr />
         
         <!-- Carrusel -->
@@ -94,6 +96,26 @@
             <i class="bi bi-instagram"></i> Instagram
             </a>
         </div>
+
+        <table class="table">
+            <h1>Tabla de productos</h1>
+
+            <head>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                </tr>
+            </head>
+            <tbody>
+                <% productos.forEach(p =>{%>
+                    <tr>
+                        <td><%= p.nombre%></td>
+                        <td><%=p.precio%></td>
+                    </tr>
+                <%});%>       
+            </tbody>
+        </table>
+
     </div>
 
     <!-- Footer -->
