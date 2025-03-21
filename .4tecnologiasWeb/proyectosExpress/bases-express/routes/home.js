@@ -1,37 +1,14 @@
 //importar nuestro framework
 const express = require("express");
 const router = express.Router();
+const homeController = require('../controllers/homeController')
 
 //rutas de home
 //recibe una ruta y callback, callback recibe request y response
 
-router.get("/", (req, response) => {
-  const productos = [
-    {
-      nombre:'producto1',
-      precio:100
-    },
-    {nombre:'producto2',
-      precio:200
+router.get("/", (req, response) => homeController.getHome(req,response));
 
-    },
-    {
-      nombre:'producto3',
-      precio:300
-    },
-    {
-      nombre:'producto4',
-      precio:400
-    }
-  ]
-
-  //!indicar nombre y donde esta la vista que deseo mostrar, 
-  response.render('home/indexHome',{titulo:'Bienvenido a la página principal de express', productos})
-});
-
-router.post("/", (req, response) => {
-  response.send("mensaje de post");
-});
+router.post("/", homeController.addHome);
 
 router.put("/", (req, response) => {
   response.send("mensaje de put");

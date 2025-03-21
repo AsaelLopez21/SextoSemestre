@@ -3,7 +3,7 @@ const router = express.Router();
 
 //rutas de usuarios
 router.get("/", (req, response) => {
-  response.send("mensaje de get usuarios");
+  response.render("users/home_user",{title:'Hola usuarios'});
 });
 
 router.post("/", (req, response) => {
