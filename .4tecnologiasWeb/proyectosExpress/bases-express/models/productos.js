@@ -16,7 +16,7 @@ Products.init(
         stock:DataTypes.INTEGER
     },//!recibe tipos de datos que corresponden a la tabla
     {
-        sequelize,modelName:'Products',tableName:'productos'
+        sequelize,modelName:'Products',tableName:'productos',timestamps:false
 }); //!opciones de configuracion
 
 console.log(Products === sequelize.models.Products); //!verificar si se ha creado el modelo

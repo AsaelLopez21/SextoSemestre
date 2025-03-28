@@ -18,5 +18,7 @@ router.delete("/", (req, response) => {
   response.send("mensaje de delete");
 });
 
+router.get('/:id(\\d+)', homeController.getById);
+
 //exportar las rutas que tienen que ver con el home
 module.exports = router;

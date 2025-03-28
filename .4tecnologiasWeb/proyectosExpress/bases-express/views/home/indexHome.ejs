@@ -6,10 +6,26 @@
     <h2>Sección Principal</h2>
 
     <p>Este es el contenido principal de la página de inicio.</p>
-    <ul>
+    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+      <thead>
+      <tr style="background-color: #f2f2f2; color: #333;">
+      <th style="border: 1px solid #ddd; padding: 8px;">Nombre</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Precio</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Stock</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Ver</th>
+      </tr>
+      </thead>
+      <tbody>
       <% productos.forEach(producto => { %>
-      <li><%= producto.nombre %> - Precio: <%= producto.precio %></li>
+      <tr style="border: 1px solid #ddd;">
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= producto.nombre %></td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= producto.precio %></td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= producto.stock %></td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          <a href="/<%= producto.id_producto %>">Ver</a></td>
+      </tr>
       <% }); %>
-    </ul>
+      </tbody>
+    </table>
   </section>
 </main>
