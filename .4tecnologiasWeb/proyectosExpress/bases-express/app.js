@@ -1,4 +1,6 @@
+require('dotenv').config()
 const express = require('express')
+
 //Traer las rutas
 const routes = require('./routes')
 const morgan = require('morgan')//info: ver las peticiones hechas al servidor
@@ -24,12 +26,17 @@ app.use('/',routes)
 app.use(morgan('combined'))
 app.use(express.static(path.join(__dirname,'static'))) //info:buscando la carpeta static
 sequelize.sync()
-  .then(()=>console.log('sincronizado'))
-  .catch((error)=>console.log({'error':error}));
+.then(()=>console.log('sincronizado'))
+.catch((error)=>console.log({'error':error}));
 
 
 //puerto para levantar el servidor
+// console.log("nada?",process.env)
 app.listen(3000, () => {
   console.log(`Servidor: http://localhost:3000`);
 })
 //!Instalar nodemon para no reiniciar el servidor cada vez que se hace algun cambio
+
+
+//!notas segundo parcial
+//?dotenv ->npm i dotenv
