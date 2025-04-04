@@ -21,6 +21,8 @@ app.set('views','./views');
 app.set('layout','layouts/layout') //!usando layout
 
 //middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express_layout)//!layout
 app.use('/',routes)
 app.use(morgan('combined'))
@@ -36,6 +38,7 @@ app.listen(3000, () => {
   console.log(`Servidor: http://localhost:3000`);
 })
 //!Instalar nodemon para no reiniciar el servidor cada vez que se hace algun cambio
+
 
 
 //!notas segundo parcial
