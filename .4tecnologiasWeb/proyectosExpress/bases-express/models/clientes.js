@@ -13,6 +13,7 @@ Clientes.init(
     },
     nombre_cliente: {
       type: DataTypes.TEXT,
+      allowNull: false,
     },
     correo: DataTypes.TEXT,
     telefono: DataTypes.TEXT,
@@ -21,7 +22,6 @@ Clientes.init(
   {
     sequelize,
     modelName: "Clientes",
-    tableName: "clientes",
     timestamps: false,
   }
 );

@@ -21,8 +21,8 @@ app.set('views','./views');
 app.set('layout','layouts/layout') //!usando layout
 
 //middleware
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express_layout)//!layout
 app.use('/',routes)
 app.use(morgan('combined'))

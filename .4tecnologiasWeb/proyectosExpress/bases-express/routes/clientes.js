@@ -2,10 +2,9 @@ const express = require("express");
 const clienteController = require("../controllers/clientesController");
 const router = express.Router();
 
-// Route to get all clients
 router.get("/", async (req, res) => {
   try {
-    await clienteController.mostrarFormulario(req, res); // Llamar correctamente la función con req y res
+    await clienteController.mostrarFormulario(req, res); 
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Error interno del servidor" });
@@ -13,7 +12,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log("Datos recibidos en la solicitud:", req.body); 
+  //! console.log("Datos recibidos en la solicitud:", req.body); 
 
   try {
     const { nombre_cliente, correo, telefono, direccion } = req.body;
