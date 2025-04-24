@@ -1,4 +1,5 @@
 import 'package:app_dos/models/menu_home.dart';
+import 'package:app_dos/screens/carrousell_view.dart';
 import 'package:app_dos/screens/screens.dart';
 import 'package:app_dos/widgets/my_home_page.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,18 @@ class MyRoutes {
       titleMenu: 'Alert',
       route: 'alert',
       screen: AlertScreen(),
+    ),
+    MenuHome(
+      icon: Icons.photo,
+      titleMenu: 'CardImage',
+      route: 'card_image',
+      screen: CardImage(),
+    ),
+    MenuHome(
+      icon: Icons.car_crash,
+      titleMenu: 'CarrousellView',
+      route: 'carrousel_view',
+      screen: CarrousellViewX(),
     ),
   ];
 
