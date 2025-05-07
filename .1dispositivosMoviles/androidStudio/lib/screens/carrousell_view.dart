@@ -1,41 +1,54 @@
-import 'package:flutter/material.dart';
+import 'dart:math';
 
-class CarrousellViewX extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:app_dos/widgets/container_image.dart';
+
+class CarrousellViewX extends StatefulWidget {
   const CarrousellViewX({super.key});
+
+  @override
+  State<CarrousellViewX> createState() => _CarrousellViewXState();
+}
+
+class _CarrousellViewXState extends State<CarrousellViewX> {
+  @override
+  final CarouselController carouselController = CarouselController(
+    initialItem: 2,
+  );
+
   @override
   Widget build(BuildContext context) {
-    final size =
-        MediaQuery.of(context).size; //!obtener el tamaño de la pantalla
-
+    MediaQuery.of(context).size; //!obtener el tamaño de la pantalla
+    carouselController.animateTo(
+      150,
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.bounceInOut,
+    );
     return Scaffold(
       appBar: AppBar(title: Text('Carrousell view')),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: size.height * 0.35,
-                width: double.infinity /*Ocupa todo el ancho*/,
-                // color: Colors.amber,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(size.height * 0.1),
-                  color: Colors.transparent, // Add a color or use transparent
-                ),
-                //!poner imagen
-                child: FadeInImage(
-                  placeholder: AssetImage('assets/images/loading.gif'),
-                  image: NetworkImage(
-                    'https://bnj.blob.core.windows.net/assets/Htdocs/Images/IF_Content_480/20241116152751916.jpg?puid=15af8dee-9178-4cd0-a250-800307f842a3',
-                  ),
-                  width: double.infinity,
-                  height: 200,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            // ContainerImage(size: size, imageURL: 'valkyrie.jpg'),
             //!Carrousel view
-
+            CarouselView(
+              controller: carouselController,
+              itemExtent: 200,
+              children: [
+                FadeInImage(
+                  placeholder: AssetImage('assests/images/loading.gif'),
+                  image: AssetImage('assets/images/valkyrie.jpg'),
+                ),
+                FadeInImage(
+                  placeholder: AssetImage('assests/images/loading.gif'),
+                  image: AssetImage('assets/images/ferrari126.jpg'),
+                ),
+                FadeInImage(
+                  placeholder: AssetImage('assests/images/loading.gif'),
+                  image: AssetImage('assets/images/ferrari499p.jpg'),
+                ),
+              ],
+            ),
             //?Otra cosa
           ],
         ),
