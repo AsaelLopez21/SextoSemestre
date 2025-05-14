@@ -13,7 +13,7 @@ class CardScreen extends StatelessWidget {
 }
 
 class _customcard extends StatelessWidget {
-  const _customcard({super.key});
+  const _customcard();
 
   @override
   Widget build(BuildContext context) {

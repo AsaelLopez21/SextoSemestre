@@ -1,7 +1,7 @@
-import 'dart:math';
+// import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:app_dos/widgets/container_image.dart';
+// import 'package:app_dos/widgets/container_image.dart';
 
 class CarrousellViewX extends StatefulWidget {
   const CarrousellViewX({super.key});
@@ -12,18 +12,17 @@ class CarrousellViewX extends StatefulWidget {
 
 class _CarrousellViewXState extends State<CarrousellViewX> {
   @override
-  final CarouselController carouselController = CarouselController(
-    initialItem: 2,
-  );
-
+  // final CarouselController carouselController = CarouselController(
+  //   initialItem: 2,
+  // );
   @override
   Widget build(BuildContext context) {
     MediaQuery.of(context).size; //!obtener el tamaño de la pantalla
-    carouselController.animateTo(
-      150,
-      duration: const Duration(milliseconds: 800),
-      curve: Curves.bounceInOut,
-    );
+    // carouselController.animateTo(
+    //   150,
+    //   duration: const Duration(milliseconds: 800),
+    //   curve: Curves.bounceInOut,
+    // );
     return Scaffold(
       appBar: AppBar(title: Text('Carrousell view')),
       body: SingleChildScrollView(
@@ -32,7 +31,7 @@ class _CarrousellViewXState extends State<CarrousellViewX> {
             // ContainerImage(size: size, imageURL: 'valkyrie.jpg'),
             //!Carrousel view
             CarouselView(
-              controller: carouselController,
+              // controller: carouselController,
               itemExtent: 200,
               children: [
                 FadeInImage(

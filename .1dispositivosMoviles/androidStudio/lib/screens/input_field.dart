@@ -1,42 +1,24 @@
+import 'package:app_dos/screens/custom_form_field.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class InputField extends StatelessWidget {
+  const InputField({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Input field')),
-      body: Column(
-        children: [
-          TextFormField(
-            initialValue: 'ola',
-            autofocus: true,
-            textCapitalization: TextCapitalization.words,
-            onChanged: (value) {
-              print(value);
-            },
-            validator: (value) {
-              if (value == null) return 'campo requerido';
-              if (value.length < 4) return 'tamaño minimo 4';
-            },
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            decoration: InputDecoration(
-              hintText: 'nombre',
-              labelText: 'labeltext',
-              helperText: 'minimo4',
-              counterText: 'hasta4',
-              suffixIcon: Icon(Icons.account_circle),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-              ),
+      appBar: AppBar(title: Text('Ingresar valores')),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 10),
+            CustomFormField(
+              hintText: 'hintText',
+              labelText: 'labelText',
+              helperText: 'helperText',
+              icono: Icons.people_rounded,
             ),
-          ),
-          SizedBox(height: 15),
-          TextFormField(initialValue: 'ola', autofocus: true),
-        ],
+          ],
+        ),
       ),
     );
   }

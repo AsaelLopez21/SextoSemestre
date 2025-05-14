@@ -1,5 +1,5 @@
 import 'package:app_dos/models/menu_home.dart';
-import 'package:app_dos/screens/carrousell_view.dart';
+import 'package:app_dos/screens/input_field.dart';
 import 'package:app_dos/screens/screens.dart';
 import 'package:app_dos/widgets/my_home_page.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +48,13 @@ class MyRoutes {
       titleMenu: 'CarrousellView',
       route: 'carrousel_view',
       screen: CarrousellViewX(),
+    ),
+
+    MenuHome(
+      icon: Icons.insert_drive_file_rounded,
+      titleMenu: 'Input',
+      route: 'input',
+      screen: InputField(),
     ),
   ];
 
