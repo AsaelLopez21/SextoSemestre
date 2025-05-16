@@ -9,6 +9,10 @@ class CustomFormField extends StatelessWidget {
     required this.icono,
     this.suffixIcon,
     this.keyboardType,
+    this.obscureText = false,
+    required this.myForm,
+    required this.keyForm,
+    this.initialValue,
   });
 
   final String hintText;
@@ -17,44 +21,44 @@ class CustomFormField extends StatelessWidget {
   final IconData icono;
   final IconData? suffixIcon;
   final TextInputType? keyboardType;
+  final bool? obscureText;
+  final Map<String, dynamic> myForm;
+  final String keyForm;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Input field')),
-      body: Column(
-        children: [
-          TextFormField(
-            initialValue: 'ola',
-            autofocus: true,
-            textCapitalization: TextCapitalization.words,
-            keyboardType: keyboardType,
-            onChanged: (value) {
-              print(value);
-            },
-            validator: (value) {
-              if (value == null) return 'campo requerido';
-              if (value.length < 4) return 'tamaño minimo 4';
-              return null;
-            },
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            decoration: InputDecoration(
-              hintText: 'nombre',
-              labelText: 'labeltext',
-              helperText: 'minimo4',
-              counterText: 'hasta4',
-              suffixIcon: suffixIcon == null ? null : Icon(suffixIcon),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-              ),
-            ),
+    return TextFormField(
+      // initialValue: '',
+      autofocus: true,
+      textCapitalization: TextCapitalization.words,
+      keyboardType: keyboardType,
+      obscureText: obscureText ?? false,
+
+      onChanged: (value) {
+        myForm[keyForm] = value;
+      },
+
+      validator: (value) {
+        print('VALOR $value');
+        if (value == null) return 'campo requerido';
+        return value.length < 4 ? 'tamaño minimo 4 $labelText' : null;
+      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+        hintText: hintText,
+        labelText: labelText,
+        helperText: helperText,
+        // counterText: 'hasta4',
+        suffixIcon: suffixIcon == null ? null : Icon(suffixIcon),
+        icon: Icon(icono),
+
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10),
+            bottomRight: Radius.circular(10),
           ),
-          SizedBox(height: 15),
-          TextFormField(initialValue: 'ola', autofocus: true),
-        ],
+        ),
       ),
     );
   }
