@@ -7,7 +7,7 @@ export const FirstApp = () => {
 
       <div className="container-fluid">
         <div className="row">
-          <CustomCard title="Card 1"/>
+          <CustomCard title={2117}/>
           <CustomCard edad = {21+9} />
           <CustomCard />
           <CustomCard />
@@ -26,4 +26,4 @@ export default FirstApp;
 //y UN COMENTARIO AMARILLO
 //info UN COMENTARIO AZUL
 //! UN COMENTARIO ROJO
-//o UN COMENTARIO NARANJA 7 
+//o UN COMENTARIO NARANJA 

@@ -1,16 +1,16 @@
 //Y :recomendable poner funciones afuera
 // const suma = (a,b) => a+b;
-
 //w {JSON.stringify(persona)}
 // const persona = {
 //   nombre: "hola",
 //   edad: 40
 // };
 
-export const CustomCard = ({title, edad = 40}) => {
+import PropTypes from "prop-types";
+import React from "react";
 
+export const CustomCard = ({title, edad}) => {
   console.log('propiedad', title);
-
   return (
     <>
       <div className="card ms-3 mt-1" style={{ width: '300px' }}>
@@ -28,5 +28,10 @@ export const CustomCard = ({title, edad = 40}) => {
   );
 }
 
+//Y tipo de datos que deben ser las props
+CustomCard.propTypes = {
+  title: PropTypes.string.isRequired,  //o definir tipo de dato de title
+  edad: PropTypes.number
+}
 
 export default CustomCard;
