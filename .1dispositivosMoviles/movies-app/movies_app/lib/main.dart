@@ -1,3 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:movies_app/screens/details_screen.dart';
+import 'package:movies_app/screens/home_screen.dart';
+
+void main() {
+  runApp(MovieApp());
+}
+
+class MovieApp extends StatelessWidget {
+  const MovieApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: 'home',
+      routes: {'home': (_) => HomeScreen(), 'details': (_) => DetailsScreen()},
+    );
+  }
+}
+
+
+
+
 // import 'package:flutter/material.dart';
 
 // void main() {
@@ -70,7 +94,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     // This method is rerun every time setState is called, for instance as done
-//     // by the _incrementCounter method above.
+//     //by the _incrementCounter method above.
 //     //
 //     // The Flutter framework has been optimized to make rerunning build methods
 //     // fast, so that you can just rebuild anything that needs updating rather
@@ -120,4 +144,4 @@
 //     );
 //   }
 // }
-//info crear de cero proyecto :O
+

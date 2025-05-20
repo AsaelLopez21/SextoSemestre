@@ -1,4 +1,5 @@
 import CustomCard from "./components/Card";
+import { FirstHook } from "./components/FirstHook";
 
 export const FirstApp = () => {
   return (
@@ -6,11 +7,13 @@ export const FirstApp = () => {
       {/*//yellow un comentario amarillo */}
 
       <div className="container-fluid">
-        <div className="row">
-          <CustomCard title={2117}/>
+        <div>
+          {/* <CustomCard title={2117}/>
           <CustomCard edad = {21+9} />
           <CustomCard />
-          <CustomCard />
+          <CustomCard /> */}
+          <h3>Hook</h3>
+          <FirstHook initialValue={10}></FirstHook>
         </div>
       </div>
     </>
