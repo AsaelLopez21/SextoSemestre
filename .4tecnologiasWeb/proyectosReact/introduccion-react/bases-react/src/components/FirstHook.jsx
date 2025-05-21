@@ -10,7 +10,7 @@ export const FirstHook = ({initialValue}) => {
   const [counter, setCounter] = useState(initialValue);
   
   const increment = () => {
-    setCounter(counter + 1); //y poner nuevo valor del contador, no counter++
+    setCounter(counter + 1); //y =>poner nuevo valor del contador, no counter++
   }
 
   return (
