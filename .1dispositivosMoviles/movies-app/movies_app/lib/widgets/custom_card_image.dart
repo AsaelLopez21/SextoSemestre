@@ -6,9 +6,9 @@ class CustomCardImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      // ignore: sized_box_for_whitespace
       child: Container(
         width: double.infinity,
-        color: const Color.fromARGB(255, 174, 174, 174),
         height: double.infinity,
         child: FadeInImage(
           placeholder: AssetImage('assets/images/loading.gif'),

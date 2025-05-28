@@ -8,14 +8,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Details screen'),
+        // titleTextStyle: TextStyle(color: Colors.white),
         backgroundColor: Colors.indigo,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //o swiper
           CustomSwiper(),
 
           //o now playing, horizontal
+          CustomListView(),
         ],
       ),
     );

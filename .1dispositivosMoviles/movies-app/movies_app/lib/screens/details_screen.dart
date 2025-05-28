@@ -4,9 +4,8 @@ class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('DetailsScreen')),
-      body: Center(child: Text('ListView')),
-    );
+    //o => recuperar el indice u objeto de tipo pelicula
+
+    return Scaffold(body: CustomScrollView(slivers: [SliverAppBar()]));
   }
 }

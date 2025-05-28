@@ -1,20 +1,25 @@
 import React from "react";
 import { SearchMovie } from "./components/SearchMovie";
+import { useState } from "react";
+import { MovieGenre } from "./components/MovieGenre";
 
 export const MovieApp = () => {
-  const movies = ["Accion", "Terror"];
+
+  const [movieGenre, setMovieGenre] = useState([]);
+
+  const onNewGenreMovie = (newGenre) => {
+    setMovieGenre([newGenre, ...movieGenre])
+  };
 
   return (
     <>
       {/* //g => busqueda de peliculas */}
-      <SearchMovie />
+      <SearchMovie onNewGenreMovie={onNewGenreMovie}/>
 
       {/* //g => mostrar las perliculas  */}
-      <ul>
-        {movies.map((movie) => {
-          return <li key = {movie} >{movie}</li>;
+        {movieGenre.map((movie) => {
+          return <MovieGenre key = {movie} genreMovie={movie}></MovieGenre>
         })}
-      </ul>
     </>
   );
 };

@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 
-export const SearchMovie = () => {
-  const[inputValue, setInputValue] = useState('Pelicula')
+export const SearchMovie = ({onNewGenreMovie}) => {
+  const[inputValue, setInputValue] = useState('')
 
-  onChangeInputValue =()=>{
-    // //o => campturar los datos y el inputValue
+  const onChangeInputValue =({target})=>{
+    //p => console.log(event.target.value);
+    setInputValue(target.value);
+  }
+
+  const onNewMovieGenre = (event)=>{
+    event.preventDefault();
+    onNewGenreMovie(inputValue)
+    setInputValue('');
   }
     
   return (
@@ -13,7 +20,7 @@ export const SearchMovie = () => {
         <div className="row">
           <div className="col"></div>
           <div className="col">
-            <form>
+            <form onSubmit={onNewMovieGenre}>
               <input
                 className="form-control"
                 type="text"

@@ -10,18 +10,28 @@ class CustomSwiper extends StatelessWidget {
     final sizeScreen = MediaQuery.of(context).size;
 
     return SizedBox(
+      // ignore: sized_box_for_whitespace
       child: Container(
         width: double.infinity,
         height: sizeScreen.height * 0.5, //Y ->calcular este valor
-        color: Colors.pinkAccent,
+        // color: Colors.white,
         child: Swiper(
+          //o => enviar como parametro la pelicula
+          onTap:
+              (index) => Navigator.pushNamed(
+                context,
+                'details',
+                arguments: 'pelicula', //y =>  enviar ojeto de tipo pelicula
+              ),
           itemBuilder: (context, index) {
             return CustomCardImage();
           },
           itemCount: 10,
-          autoplay: true,
-          pagination: SwiperPagination(),
+          itemWidth: 300,
+          autoplay: false,
+          // pagination: SwiperPagination(),
           control: SwiperControl(),
+          layout: SwiperLayout.STACK,
         ),
       ),
     );
