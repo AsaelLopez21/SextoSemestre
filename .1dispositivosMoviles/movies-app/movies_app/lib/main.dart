@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/providers/movie_provider.dart';
 import 'package:movies_app/screens/details_screen.dart';
 import 'package:movies_app/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
+//! API TMD => https://api.themoviedb.org/3/movie/popular?api_key=90a80049eeae86e04ced1a9cc9c2d6a3
+
+//y => despues de esta parte debe ir lo del provider
 void main() {
-  runApp(MovieApp());
+  runApp(AppProvider());
 }
 
+//y => hacer uso del provider y conectar con MovieApp
+class AppProvider extends StatelessWidget {
+  const AppProvider({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        //y => metodo para inyectar widget
+        ChangeNotifierProvider(create: (_) => MovieProvider(), lazy: false),
+      ],
+      child: MovieApp(),
+    );
+  }
+}
+
+//y esta conectado con la clase donde se esta haciendo lo del provider
 class MovieApp extends StatelessWidget {
   const MovieApp({super.key});
 
