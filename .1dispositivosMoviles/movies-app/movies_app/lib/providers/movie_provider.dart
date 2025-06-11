@@ -11,7 +11,7 @@ class MovieProvider extends ChangeNotifier {
   final apiKey = '90a80049eeae86e04ced1a9cc9c2d6a3';
 
   MovieProvider() {
-    getPopularMovies();
+    getMoviesByPopular();
   }
 
   Future<String> getPopularMovies({String? seg}) async {

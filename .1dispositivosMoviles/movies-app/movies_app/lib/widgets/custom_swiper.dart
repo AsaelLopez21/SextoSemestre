@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:movies_app/models/movie.dart';
 import 'package:movies_app/widgets/widgets.dart';
 
 class CustomSwiper extends StatelessWidget {
-  const CustomSwiper({super.key});
+  final List<Movie> movies;
+  const CustomSwiper({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,6 @@ class CustomSwiper extends StatelessWidget {
 
     return SizedBox(
       // ignore: sized_box_for_whitespace
-      child: Container(
         width: double.infinity,
         height: sizeScreen.height * 0.5, //Y ->calcular este valor
         // color: Colors.white,
@@ -24,16 +25,16 @@ class CustomSwiper extends StatelessWidget {
                 arguments: 'pelicula', //y =>  enviar ojeto de tipo pelicula
               ),
           itemBuilder: (context, index) {
-            return CustomCardImage();
+            return CustomCardImage(posterPath: movies[index].getPosterPath,);
           },
-          itemCount: 10,
+          itemCount: movies.length,
           itemWidth: 300,
           autoplay: false,
           // pagination: SwiperPagination(),
           control: SwiperControl(),
           layout: SwiperLayout.STACK,
         ),
-      ),
+      
     );
   }
 }

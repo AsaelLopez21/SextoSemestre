@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/models/movie.dart';
 
 class CustomListView extends StatelessWidget {
-  const CustomListView({super.key});
+  final List<Movie> movies;
+  const CustomListView({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class CustomListView extends StatelessWidget {
           // color: Colors.amber,
           //y => gesture detector
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: movies.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, i) {
               return GestureDetector(
@@ -47,13 +49,11 @@ class CustomListView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         child: FadeInImage(
                           placeholder: AssetImage('assets/images/loading.gif'),
-                          image: NetworkImage(
-                            'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI',
-                          ),
+                          image: NetworkImage(movies[i].getPosterPath),
                         ),
                       ),
                       Text(
-                        'Titulo de la pelicula',
+                        movies[i].title,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),

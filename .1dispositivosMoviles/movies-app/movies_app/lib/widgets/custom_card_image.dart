@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomCardImage extends StatelessWidget {
-  const CustomCardImage({super.key});
+  final String posterPath;
+  const CustomCardImage({super.key, required this.posterPath});
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +13,7 @@ class CustomCardImage extends StatelessWidget {
         height: double.infinity,
         child: FadeInImage(
           placeholder: AssetImage('assets/images/loading.gif'),
-          image: NetworkImage(
-            'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI',
-          ),
+          image: NetworkImage(posterPath),
         ),
       ),
     );
