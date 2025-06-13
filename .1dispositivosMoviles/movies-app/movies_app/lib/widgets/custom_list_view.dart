@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/models/movie.dart';
+import 'package:movies_app/widgets/widgets.dart';
 
 class CustomListView extends StatelessWidget {
   final List<Movie> movies;
@@ -21,51 +22,16 @@ class CustomListView extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 1),
         SizedBox(
-          height: 250,
+          height: 280,
           width: double.infinity,
           // color: Colors.amber,
           //y => gesture detector
-          child: ListView.builder(
-            itemCount: movies.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, i) {
-              return GestureDetector(
-                onTap:
-                    () => Navigator.pushNamed(
-                      context,
-                      'details',
-                      arguments: 'movie $i',
-                    ),
-                child: Container(
-                  width: 120,
-                  height: 180,
-                  margin: EdgeInsets.all(10),
-                  // color: Colors.indigoAccent,
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: FadeInImage(
-                          placeholder: AssetImage('assets/images/loading.gif'),
-                          image: NetworkImage(movies[i].getPosterPath),
-                        ),
-                      ),
-                      Text(
-                        movies[i].title,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
+          child: SizedBox(
+            child: MoviesListView(movies: movies),
+          ), //g => nuevo widget
         ),
-
-        //o => List view
       ],
     );
   }

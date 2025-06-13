@@ -14,18 +14,20 @@ class HomeScreen extends StatelessWidget {
         // titleTextStyle: TextStyle(color: Colors.white),
         backgroundColor: Colors.indigo,
       ),
-      body:SingleChildScrollView( 
-      child:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          //o swiper
-          CustomSwiper(movies: providerOfMovie.popularsMovies),
-
-          //o now playing, horizontal
-          CustomListView(movies: providerOfMovie.popularsMovies),
-        ],
-      ),),
-
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //o swiper
+            CustomSwiper(movies: providerOfMovie.popularsMovies),
+            SizedBox(height: 19),
+            //o now playing, horizontal
+            CustomListView(
+              movies: providerOfMovie.nowPlayingMovies,
+            ), //y => cambio
+          ],
+        ),
+      ),
     );
   }
 }

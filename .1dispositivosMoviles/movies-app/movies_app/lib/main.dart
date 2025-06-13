@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/providers/movie_provider.dart';
-import 'package:movies_app/screens/details_screen.dart';
+// import 'package:movies_app/screens/details_screen.dart';
 import 'package:movies_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +35,7 @@ class MovieApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
-      routes: {'home': (_) => HomeScreen(), 'details': (_) => DetailsScreen()},
+      routes: {'home': (_) => HomeScreen()},
     );
   }
 }
